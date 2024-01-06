@@ -1,0 +1,53 @@
+@use "../utils" as *;
+@use "sass:map";
+
+/* ================ Start Last Articles Section Styles ================ */
+#articles
+{
+    .articles-container
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(30);
+        margin-top: rem(55);
+
+        .article-box
+        {
+            background-color: $light;
+            box-shadow: 0 0 rem(20) rgba($color: $dark, $alpha: 0.08);
+
+            .details
+            {
+                padding: rem(18) rem(24);
+
+                h3
+                {
+                    font-size: rem(18);
+                    font-weight: map.get($font-weights, "semi-bold");
+                    color: $grey-200;
+                }
+                p
+                {
+                    margin-top: rem(12);
+                    margin-bottom: rem(16);
+                }
+                a
+                {
+                    font-size: map.get($font-sizes, "small");
+                    font-weight: map.get($font-weights, "regular");
+                    color: #6c757d;
+                }
+            }
+        }
+
+        @include large-devices
+        {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include small-devices
+        {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+    }
+}

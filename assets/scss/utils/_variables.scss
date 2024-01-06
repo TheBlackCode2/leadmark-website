@@ -1,0 +1,35 @@
+@use "./functions" as *;
+
+// Colors
+$primary-color: #ff6e42;
+$hover-color: #ff511c;
+$very-light-blue: #f5f8fc;
+$light: #ffffff;
+$grey-100: #7c7c7c;
+$grey-200: #444444;
+$dark: #000000;
+
+// Font(s)
+$primary-font: 'Poppins', sans-serif;
+$font-sizes: (
+    "small" : rem(14),
+    "normal" : rem(16),
+    "medium" : rem(18),
+);
+$font-weights: (
+    "regular"   : 400,
+    "medium"    : 500,
+    "semi-bold" : 600,
+    "bold"      : 700,
+);
+
+// Sizes
+$section-pad: rem(80);
+$section-pad-top: $section-pad;
+$section-pad-bottom: $section-pad;
+
+// Values
+$menu-transition: 0.5s ease-in-out;
+$nav-link-transition: 0.2s ease-in-out;
+$button-transition: 0.2s ease-in-out;
+$tab-transiton: 0.2s ease-in-out;

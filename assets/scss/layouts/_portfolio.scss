@@ -1,0 +1,105 @@
+@use "../utils" as *;
+@use "sass:map";
+
+/* ================ Start Portfolio Section Styles ================ */
+#portfolio
+{
+    .tabs-bar
+    {
+        margin-top: rem(45);
+        margin-bottom: rem(34);
+
+        .tabs
+        {
+            width: fit-content;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: rem(5);
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: rem(99);
+            padding: rem(5);
+            width: min(100%, rem(400));
+
+            .tab
+            {
+                padding: rem(8) rem(14);
+                border-radius: rem(99); 
+                font-size: rem(13);
+                font-weight: map.get($font-weights, "medium");
+                color: $grey-200;
+                opacity: 0.7;
+                transition: $tab-transiton;
+                
+                &.active
+                {
+                    color: $light;
+                    background-color: $primary-color;
+                    opacity: 1;
+                }
+                &:hover
+                {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .projects-container
+    {
+        
+        .project-box
+        {
+            line-height: 0;
+            width: calc(100% / 3 - rem(20));
+            position: relative;
+            overflow: hidden;
+            margin: rem(10);
+            cursor: pointer;
+
+            @include medium-devices
+            {
+                width: calc(100% / 2 - rem(20));
+            }
+            @include small-devices
+            {
+                width: calc(100% / 1 - rem(20));
+            }
+
+            .info
+            {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 100%;
+                background-color: rgba($color: $primary-color, $alpha: 0.7);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-inline: rem(30);
+                transition: 0.2s ease-in-out;
+
+                h3
+                {
+                    font-size: rem(20);
+                    font-weight: map.get($font-weights, "semi-bold");
+                    color: $light;
+                    margin-bottom: rem(20);
+                }
+                p
+                {
+                    font-weight: map.get($font-weights, "medium");
+                    color: $light;
+                    text-align: center;
+                }
+            }
+
+            &:hover .info
+            {
+                left: 0;
+            }
+        }
+    }
+}

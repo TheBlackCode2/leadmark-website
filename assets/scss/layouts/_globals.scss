@@ -1,0 +1,147 @@
+@use "../utils" as *;
+@use "sass:map";
+
+/* ================ Start Global Styles ================ */
+html
+{
+    scroll-behavior: smooth;
+}
+*, *::before, *::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: $primary-font;
+}
+input, button, textarea
+{
+    appearance: none;
+    border: none;
+    outline: none;
+    font-family: $primary-font;
+    font-size: map.get($font-sizes, "normal");
+    font-weight: map.get($font-weights, "regular");
+}
+input[type="submit"], button
+{
+    cursor: pointer;
+}
+li
+{
+    list-style: none;
+}
+a
+{
+    display: inline-block;
+    text-decoration: none;
+}
+p
+{
+    font-size: map.get($font-sizes, "small");
+    font-weight: map.get($font-weights, "regular");
+    line-height: 1.6;
+    color: $grey-200;
+}
+img
+{
+    width: 100%;
+    object-fit: cover;
+}
+.wrapper
+{
+    max-width: min(rem(1140), 90%);
+    margin: 0 auto;
+
+    @include large-devices
+    {
+        max-width: min(rem(720), 90%);
+    }
+    @include medium-devices
+    {
+        max-width: min(rem(620), 90%);
+    }
+    @include small-devices
+    {
+        max-width: 100%;
+        padding-left: rem(24);
+        padding-right: rem(24);
+    }
+}
+.logo
+{
+    max-width: rem(60);
+}
+.primary-btn
+{
+    padding: rem(8) rem(12);
+    font-size: rem(13);
+    font-weight: map.get($font-weights, "semi-bold");
+    background-color: $primary-color;
+    color: $light;
+    border-radius: rem(99);
+    transition: $button-transition;
+
+    &:hover
+    {
+        background-color: $hover-color;
+    }
+}
+.mobile
+{
+    display: none;
+
+    @include medium-devices
+    {
+        display: block;
+    }
+}
+.section-pad
+{
+    padding-top: $section-pad-top;
+    padding-bottom: $section-pad-bottom;
+}
+.bg-lt
+{
+    background-color: $light;
+}
+.bg-bt
+{
+    background-color: $very-light-blue;
+}
+.section-title
+{
+    &.text-center
+    {
+        text-align: center;
+    }
+
+    h1
+    {
+        font-size: rem(30);
+        font-weight: map.get($font-weights, "semi-bold");
+        color: $grey-200;
+        margin-bottom: rem(8);
+
+        @include large-devices
+        {
+            font-size: rem(26);
+        }
+        @include medium-devices
+        {
+            font-size: rem(24);
+        }
+        @include small-devices
+        {
+            margin-top: rem(20);
+        }
+    }
+    p
+    {
+        font-weight: map.get($font-weights, "regular");
+    }
+}

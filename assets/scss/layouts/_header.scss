@@ -1,0 +1,134 @@
+@use "../utils" as *;
+@use "sass:map";
+
+/* ================ Start Main Header Styles ================ */
+#main-header
+{
+    position: absolute;
+    width: 100%;
+    padding-top: rem(24);
+    padding-bottom: rem(24);
+    z-index: 10;
+    transition: 0.15s ease-in-out;
+
+    .wrapper
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .menu
+    {
+        display: flex;
+        align-items: center;
+
+        #close-btn
+        {
+            font-size: rem(24);
+            color: $light;
+            position: absolute;
+            top: rem(30);
+            right: rem(40);
+        }
+        .navbar
+        {
+            display: flex;
+            align-items: center;
+
+            .nav-link
+            {
+                padding: rem(8) rem(12);
+                margin-inline: rem(6);
+                font-size: rem(13);
+                font-weight: map.get($font-weights, "semi-bold");
+                color: $light;
+                transition: $nav-link-transition;
+            }
+        }
+        .primary-btn
+        {
+            margin-left: rem(24);
+        }
+    }
+
+    #hamburger-menu-btn, #close-btn
+    {
+        font-size: rem(24);
+        color: $grey-200;
+    }
+
+    @mixin fixed-header
+    {
+        position: fixed;
+        background-color: $light;
+        padding-top: rem(12);
+        padding-bottom: rem(12);
+        box-shadow: 0 0 rem(20) rgba($color: $dark, $alpha: 0.125);
+    }
+
+    &.fixed
+    {
+        @include fixed-header;
+
+        .menu .navbar .nav-link
+        {
+            color: $grey-200;
+            opacity: 0.7;
+
+            &:hover
+            {
+                opacity: 1;
+            }
+        }
+    }
+    
+    @include medium-devices
+    {
+        @include fixed-header;
+
+        .menu
+        {
+            $left-gap: rem(100);
+
+            position: fixed;
+            top: 0;
+            left: 100%;
+            width: calc(100% - $left-gap);
+            height: 100vh;
+            flex-direction: column;
+            background-color: $primary-color;
+            justify-content: center;
+            transition: $menu-transition;
+            gap: rem(10);
+
+            .navbar
+            {
+                flex-direction: column;
+                gap: rem(10);
+
+                .nav-link
+                {
+                    color: $light;
+                }
+            }
+            .primary-btn
+            {
+                background-color: $hover-color;
+                margin: 0 rem(6);
+            }
+
+            &.open
+            {
+                left: $left-gap;
+            }
+        }
+
+        &.fixed .menu .navbar .nav-link
+        {
+            color: $light;
+            opacity: 1;
+        }
+        
+    }
+}
+

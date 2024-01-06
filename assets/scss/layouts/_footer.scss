@@ -1,0 +1,136 @@
+@use "../utils" as *;
+@use "sass:map";
+
+/* ================ Start Footer Styles ================ */
+#footer
+{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../imgs/footer.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 0;
+
+    .wrapper
+    {
+        display: flex;
+        align-items: center;
+        gap: rem(100);
+        border-bottom: rem(1) solid #7c7c7c;
+        padding-bottom: rem(50);
+
+        @include large-devices
+        {
+            gap: rem(30);
+        }
+        @include medium-devices
+        {
+            flex-direction: column;
+            align-items: unset;
+        }
+    }
+    .footer-left
+    {
+        flex-basis: 40%;
+        .contact-box
+        {            
+            h4
+            {
+                color: $light;    
+                font-size: map.get($font-sizes, "normal");
+                font-weight: map.get($font-weights, "medium");
+            }
+            p
+            {
+                color: $light;
+                opacity: 0.7;
+            }
+
+            &:not(:last-child)
+            {
+                margin-bottom: rem(20);
+            }
+        }
+        @include large-devices
+        {
+            flex-basis: 33%;
+        }
+    }
+    .footer-right
+    {
+        flex-basis: 60%;
+
+        h2
+        {
+            color: $light;
+            font-size: rem(24);
+            font-weight: map.get($font-weights, "medium");
+            margin-bottom: rem(20);
+        }
+        nav
+        {
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+            margin-bottom: rem(10);
+
+            @include small-devices
+            {
+                flex-direction: column;
+            }
+        }
+        .input-field
+        {
+            display: block;
+            width: 100%;
+            padding: rem(7) rem(12);
+            background-color: transparent;
+            border-bottom: rem(2) solid $grey-100;
+            color: $light;
+            font-size: rem(15);
+            font-weight: map.get($font-weights, "regular");
+
+            &::placeholder
+            {
+                color: $grey-100;
+            }
+
+            &:valid, &:focus
+            {
+                border-bottom-color: $primary-color;
+            }
+        }
+        input.input-field
+        {
+            height: rem(40);
+        }
+        textarea.input-field
+        {
+            height: rem(80);
+            min-height: rem(40);
+            max-height: rem(200);
+            resize: vertical;
+            margin-bottom: rem(35);
+        }
+
+        .primary-btn
+        {
+            width: min(100%, rem(150));
+        }
+
+        @include large-devices
+        {
+            flex-basis: 66%;
+        }
+    }
+
+    small
+    {
+        text-align: center;
+        display: block;
+        font-size: map.get($font-sizes, "small");
+        font-weight: map.get($font-weights, "mesium");
+        color: $light;
+        padding: rem(24);
+        opacity: 0.6;
+    }
+}

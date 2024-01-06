@@ -1,0 +1,68 @@
+@use "../utils" as *;
+@use "sass:map";
+
+/* ================ Start Services Section Styles ================ */
+#services
+{
+    padding-top: rem(1);
+    position: relative;
+    z-index: 5;
+    background-color: transparent;
+    
+    svg
+    {
+        position: absolute;
+        bottom: calc(100% - 2vw);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        z-index: -1;
+    }
+    .section-title
+    {
+        padding-top: rem(1);
+        margin-top: rem(-10);
+
+        @include medium-devices
+        {
+            margin-top: 0;
+        }
+    }
+    .services-container
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(30);
+        margin-top: rem(55);
+
+        .service-box
+        {
+            border: rem(1) solid rgba(0, 0, 0, 0.125);
+            padding: rem(20);
+            
+            span
+            {
+                font-size: rem(14);
+                font-weight: map.get($font-weights, "bold");
+                color: $primary-color;
+            }
+            h3
+            {
+                font-size: rem(18);
+                font-weight: map.get($font-weights, "semi-bold");
+                color: $grey-200;
+                margin-top: rem(16);
+                margin-bottom: rem(12);
+            }
+        }
+
+        @include large-devices
+        {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include small-devices
+        {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

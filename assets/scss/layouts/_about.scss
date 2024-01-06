@@ -1,0 +1,49 @@
+@use "../utils" as *;
+@use "sass:map";
+
+/* ================ Start About Section Styles ================ */
+#about
+{
+    .wrapper
+    {
+        display: flex;
+        gap: rem(100);
+
+        @include large-devices
+        {
+            gap: rem(30);
+        }
+
+        @include medium-devices
+        {
+            flex-direction: column;   
+        }
+    }
+
+    .about-left
+    {
+        flex-basis: 50%;
+
+        &>p
+        {
+            margin-top: rem(24);
+            margin-bottom: rem(32);
+        }
+    }
+    .about-right
+    {
+        flex-basis: 50%;
+
+        .about-images
+        {
+            display: flex;
+            gap: rem(30);
+            margin-bottom: rem(24);
+        }
+        p:nth-child(3)
+        {
+            margin-top: rem(16);
+            margin-bottom: rem(16);
+        }
+    }
+}

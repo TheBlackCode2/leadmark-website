@@ -1,0 +1,51 @@
+@use "../utils" as *;
+@use "sass:map";
+
+/* ================ Start Testmonials Section Styles ================ */
+#testmonials
+{
+    .testmonials-container
+    {
+        margin-top: rem(55);
+
+        .member
+        {
+            border: rem(1) solid rgba($color: $dark, $alpha: 0.125);
+            padding: rem(20) rem(30);
+            cursor: grab;
+            
+            .details
+            {
+                display: flex;
+                align-items: center;
+                gap: rem(15);
+                margin-bottom: rem(20);
+
+                img
+                {
+                    width: rem(60);
+                    height: rem(60);
+                    border-radius: 50%;
+                }
+                h4
+                {
+                    font-size: rem(18);
+                    font-weight: map.get($font-weights, "medium");
+                    color: $grey-200;
+                    line-height: 1.3;
+                }
+                span
+                {
+                    font-size: rem(12);
+                    font-weight: map.get($font-weights, "regular");
+                    color: $grey-200;
+                    opacity: 0.7;
+                }
+            }
+            p
+            {
+                opacity: 0.7;
+            }
+        }
+    }
+}
